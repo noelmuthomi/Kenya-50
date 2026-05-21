@@ -1,0 +1,22 @@
+{
+  "name": "Kenya @ 50 FOSS",
+  "short_name": "K50",
+  "description": "Premium offline Kenyan cultural guessing game.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#009A44",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwOUE0NCIvPjx0ZXh0IHk9IjYwIiB4PSIyMCIgZmlsbD0iI0ZGRDEwMCIgZm9udC1zaXplPSI0MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPks1MDwvdGV4dD48L3N2Zz4=",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwOUE0NCIvPjx0ZXh0IHk9IjYwIiB4PSIyMCIgZmlsbD0iI0ZGRDEwMCIgZm9udC1zaXplPSI0MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPks1MDwvdGV4dD48L3N2Zz4=",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
