@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#121212">
+    <meta name="description" content="Kenya @ 50 FOSS - A premium offline Kenyan cultural guessing game.">
+    <title>Kenya @ 50 FOSS</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Preload fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <section id="screen-splash" class="screen active">
+        <div class="logo-container pulse">
+            <h1 class="logo">KENYA <span class="highlight">@ 50</span></h1>
+            <p class="tagline">The Ultimate Culture Game</p>
+        </div>
+        <div class="loader"></div>
+    </section>
+
+    <!-- Home Screen -->
+    <section id="screen-home" class="screen hidden">
+        <header>
+            <h1 class="logo small">KENYA <span class="highlight">@ 50</span></h1>
+        </header>
+        <div class="menu-cards">
+            <button class="card-btn" onclick="Game.init('classic')">
+                <h2>Classic Mode</h2>
+                <p>60 Seconds. Team Play.</p>
+            </button>
+            <button class="card-btn neon-border" onclick="Game.init('rapid')">
+                <h2>Rapid Fire</h2>
+                <p>30 Seconds. Combos & High Scores.</p>
+            </button>
+        </div>
+        <div class="action-buttons">
+            <button class="icon-btn" onclick="App.showScreen('screen-settings')" aria-label="Settings">⚙️</button>
+            <button class="icon-btn" onclick="App.showScreen('screen-stats')" aria-label="Stats">📊</button>
+        </div>
+        <div id="pwa-install-banner" class="hidden">
+            <p>Install for offline play!</p>
+            <button id="install-btn">Install</button>
+        </div>
+    </section>
+
+    <!-- Game Screen -->
+    <section id="screen-game" class="screen hidden">
+        <div class="game-header">
+            <div class="timer" id="game-timer">60</div>
+            <div class="score-board">Score: <span id="game-score">0</span></div>
+            <div class="combo-board hidden" id="game-combo">x1</div>
+        </div>
+        
+        <div class="card-area">
+            <div id="word-card" class="word-card glass">
+                <h2 id="current-word">Loading...</h2>
+                <p id="word-category">Category</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="game-btn skip-btn" onclick="Game.handleAnswer(false)">Skip</button>
+            <button class="game-btn correct-btn" onclick="Game.handleAnswer(true)">Correct</button>
+        </div>
+    </section>
+
+    <!-- Results Screen -->
+    <section id="screen-results" class="screen hidden glass-panel">
+        <h1>Time's Up!</h1>
+        <div class="stats-box">
+            <p>Final Score</p>
+            <h2 id="result-score" class="neon-text">0</h2>
+            <p id="high-score-notify" class="highlight hidden">New High Score!</p>
+        </div>
+        <div class="menu-cards vertical">
+            <button class="card-btn" onclick="Game.retry()">Play Again</button>
+            <button class="card-btn secondary" onclick="App.showScreen('screen-home')">Main Menu</button>
+        </div>
+    </section>
+
+    <!-- Settings Screen -->
+    <section id="screen-settings" class="screen hidden">
+        <h1>Settings</h1>
+        <div class="settings-list">
+            <div class="setting-item">
+                <span>Sound Effects</span>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-sound" checked onchange="App.toggleSound(this)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <span>Vibration</span>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-vibration" checked onchange="App.toggleVibration(this)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <button class="danger-btn" onclick="App.resetData()">Reset All Data</button>
+        </div>
+        <button class="card-btn mt-auto" onclick="App.showScreen('screen-home')">Back</button>
+    </section>
+
+    <script src="js/audio.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
